@@ -23,7 +23,7 @@ public class LivroServiceImpl implements LivroService{
 	@Autowired private LivroRepository livroRepository;
 	@Autowired private LivroUsuarioRepository livroUsuarioRepository;
 	
-	private final Set<Long> idsLivrosVotados = new HashSet<Long>();
+	private Set<Long> idsLivrosVotados = new HashSet<Long>();
 	private PageRequest quantidadeRegistroRetornados;
 	
 	public LivroServiceImpl(){

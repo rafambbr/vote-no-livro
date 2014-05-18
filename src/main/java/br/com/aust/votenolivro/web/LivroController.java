@@ -66,6 +66,9 @@ public class LivroController {
 		try{
 			Collection<Ranking> rankingLivros = this.rankingService.carregarRanking();
 			mv.addObject("rankingLivros", rankingLivros);
+			
+			Collection<Ranking> rankingLivrosUsuario = this.rankingService.carregarRankingUsuario();
+			mv.addObject("rankingLivrosUsuario", rankingLivrosUsuario);
 		
 		}catch(BusinessException e){
 			log.warn("Erro ao carregar o ranking", e);

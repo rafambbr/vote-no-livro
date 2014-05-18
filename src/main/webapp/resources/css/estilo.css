@@ -69,3 +69,7 @@ body {
 .tb-ranking-livro th{ 
 	background-color:#a9a9a9;
 }
+
+.listaRanking{
+	text-align:center;
+}

@@ -9,4 +9,5 @@ import br.com.aust.votenolivro.domain.Usuario;
 public interface RankingService {
 	public void salvar(Collection<Livro> livros, Usuario usuario);
 	public Collection<Ranking> carregarRanking();
+	public Collection<Ranking> carregarRankingUsuario();
 }

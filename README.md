@@ -1,4 +1,4 @@
-vote-no-livro
+# Vote no Livro
 =============
 
 # Desafio BlueSoft
@@ -12,3 +12,6 @@ git clone git@github.com:rafambbr/vote-no-livro.git
 # Rodando o projeto no seu computador
 Na pasta raiz do projeto execute:
 mvn spring-boot:run
+
+# Acesse a plicação rodando
+http://tinyurl.com/vote-no-livro
