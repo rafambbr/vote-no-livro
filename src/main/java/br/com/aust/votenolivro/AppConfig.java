@@ -34,15 +34,15 @@ import br.com.aust.votenolivro.app.InitializationStrategy;
 @EnableAutoConfiguration
 @EnableJpaRepositories({"br.com.aust.votenolivro.business.repository"})
 @EnableTransactionManagement(proxyTargetClass=true)
-public class SampleDataJpaApplication extends SpringBootServletInitializer{
+public class AppConfig extends SpringBootServletInitializer{
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(SampleDataJpaApplication.class);
+		return application.sources(AppConfig.class);
 	}
 
 	public static void main(String[] args) throws Exception {
-		SpringApplication.run(SampleDataJpaApplication.class, args);
+		SpringApplication.run(AppConfig.class, args);
 	}
 	
 	@Bean(initMethod="init")

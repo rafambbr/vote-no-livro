@@ -8,9 +8,13 @@ Deverá exibir dois livros para o usuário e perguntar qual deles ele gosta mais
 # Baixando o projeto
 git clone git@github.com:rafambbr/vote-no-livro.git
 
+# Rodando o projeto na sua IDE
+Para rodar o projeto na sua IDE é preciso install o Loombok: 
+http://projectlombok.org/download.html
 
 # Rodando o projeto no seu computador
 Na pasta raiz do projeto execute:
+mvn clean install
 mvn spring-boot:run
 
 # Acesse a plicação rodando

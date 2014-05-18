@@ -13,7 +13,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import br.com.aust.votenolivro.SampleDataJpaApplication;
+import br.com.aust.votenolivro.AppConfig;
 import br.com.aust.votenolivro.business.repository.LivroRepository;
 import br.com.aust.votenolivro.business.repository.LivroUsuarioRepository;
 import br.com.aust.votenolivro.business.repository.UsuarioRepository;
@@ -22,7 +22,7 @@ import br.com.aust.votenolivro.domain.LivroUsuario;
 import br.com.aust.votenolivro.domain.Usuario;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = SampleDataJpaApplication.class)
+@SpringApplicationConfiguration(classes = AppConfig.class)
 public class LivroRepositoryTest {
 
 	private Livro harryPotter;

@@ -11,4 +11,5 @@ public interface LivroService {
 	public Collection<Livro> carregarLivrosNaoVotados();
 	public Collection<Livro> carregarTodos();
 	public Collection<Livro> getLivrosVotados();
+	public void descartar(Livro livro);
 }

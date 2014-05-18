@@ -39,19 +39,15 @@ public class LivroController {
 		response.setStatus(200);
 	}
 	
+	@RequestMapping("/livro/descartar")
+	public void descartar(Livro livro, HttpServletResponse response){
+		this.livroService.descartar(livro);
+		response.setStatus(200);
+	}
+	
 	@RequestMapping("/livro/carregar/naovotados")
 	public ModelAndView carregarLivrosNaoVotados(){
 		Collection<Livro> livros = this.livroService.carregarLivrosNaoVotados();
-		
-		ModelAndView mv = new ModelAndView("votar_no_livro");
-		mv.addObject("livros", livros);
-		
-		return mv;
-	}
-	
-	@RequestMapping("/livro/carregar/todos")
-	public ModelAndView carregarTodos(){
-		Collection<Livro> livros = this.livroService.carregarTodos();
 		
 		ModelAndView mv = new ModelAndView("votar_no_livro");
 		mv.addObject("livros", livros);

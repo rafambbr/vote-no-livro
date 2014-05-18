@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import br.com.aust.votenolivro.business.exception.ServiceException;
-import br.com.aust.votenolivro.business.repository.LivroRepository;
 import br.com.aust.votenolivro.business.repository.LivroUsuarioRepository;
 import br.com.aust.votenolivro.business.repository.UsuarioRepository;
 import br.com.aust.votenolivro.business.service.LivroService;
@@ -27,7 +26,6 @@ import br.com.aust.votenolivro.domain.Usuario;
 public class RankingServiceImpl implements RankingService{
 
 	@Autowired private LivroUsuarioRepository livroUsuarioRepository;
-	@Autowired private LivroRepository livroRepository;
 	@Autowired private UsuarioRepository usuarioRepository;
 	@Autowired private LivroService livroService;
 	

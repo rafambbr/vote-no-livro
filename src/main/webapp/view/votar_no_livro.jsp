@@ -5,7 +5,7 @@
 <h2>Vote no Livro</h2>
 <p>Gostariamos de saber quais são os livros que você mais gosta entre as opções mostradas abaixo, para isso selecione a sua opção favorita entre as mostradas abaixo, quando você escolher um livro(clicando sobre a foto da capa dele) outras sugestões serão exibidas na tela.</p>
 
-<c:if test="${fn:length(livros) >= 2}">
+<c:if test="${fn:length(livros) >= 0}">
 	<h3>Livros:</h3>
 	<table>
 		<tr>

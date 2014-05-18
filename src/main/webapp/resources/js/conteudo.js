@@ -9,9 +9,21 @@
  */
 var votaNoLivro = function(event){	
 	event.preventDefault();
-	var idLivro = $(this).attr("livro");
-	var uri = "livro/votar?idLivro="+idLivro;
-	$.get(uri, callback_votaNoLivro);
+	var idLivroVotado = $(this).attr("livro");
+	
+	
+	$(".linkVotarLivro").each(function(index) {
+		var idLivroDescartado =  $(this).attr("livro");
+		if(idLivroDescartado != idLivroVotado){
+			//Marca livro descartado
+			var uriLivroDescartado = "livro/descartar?idLivro="+idLivroDescartado;
+			$.get(uriLivroDescartado);
+		}
+	});
+	
+	//Marca livro votado
+	var uriLivroVotado = "livro/votar?idLivro="+idLivroVotado;
+	$.get(uriLivroVotado, callback_votaNoLivro);
 };
 
 /**
@@ -19,6 +31,11 @@ var votaNoLivro = function(event){
  */
 var callback_votaNoLivro = function(event){
 	$("#conteudo").load("livro/carregar/naovotados");
+};
+
+
+var descartarLivros = function(event){
+	event.preventDefault();
 };
 
 
