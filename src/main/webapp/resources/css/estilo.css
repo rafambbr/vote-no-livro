@@ -1,0 +1,71 @@
+/*
+ * Rafael Camargo
+ *
+ */
+
+body {
+  min-height: 1500px;
+  padding-top: 40px;
+}
+
+.voto-livro{
+	background-color:white;
+	width:300px;
+	text-align:center;
+	padding:15px;
+	margin:50px;
+	font-family:'Comic Sans MS', coursive;
+	border: 1px solid black;
+	/*Sombra: 
+	(1)primeiro valor tamanho da sombra horizontal e 
+	(2)segundo elemento tamanho da sombra horizontal
+	(3) elemento tamanho da sombra
+	(4) cor da sombra sendo (R,G,B, ALPHA) sendo ALPHA = transparÃªncia
+	*/
+	box-shadow:5px 5px 3px rgba(0,0,0,0.7);
+		/* Rotaciona o elemento */
+	-moz-transform:rotate(-1deg);
+	-webkit-transform:rotate(-1deg);
+	-o-transform:rotate(-1deg);
+	-ms-transform:rotate(-1deg);
+}
+
+.voto-livro :hover{
+	/* Rotaciona o elemento */
+	-moz-transform:rotate(5deg);
+	-webkit-transform:rotate(5deg);
+	-o-transform:rotate(5deg);
+	-ms-transform:rotate(5deg);
+}
+
+.tb-info-livro{
+	width:90%;
+	margin-right:auto;
+	margin-left:auto;
+	border: 1px solid #f0f0f0;
+}
+/* linhas PARES */
+.tb-info-livro tr:nth-child(odd) { background-color: #f0f0f0 ; }
+
+/* linhas IMPARES*/
+.tb-info-livro tr:nth-child(even) { background-color: #FFFFFF; }
+
+.tb-info-livro th{  
+	background-color:#FFFFFF;
+}
+
+
+.tb-ranking-livro{
+	margin-right:auto;
+	margin-left:auto;
+	border: 1px solid #f0f0f0;
+}
+/* linhas PARES */
+.tb-ranking-livro tr:nth-child(odd) { background-color: #f0f0f0 ; }
+
+/* linhas  IMPARES */
+.tb-ranking-livro tr:nth-child(even) { background-color: #FFFFFF; }
+
+.tb-ranking-livro th{ 
+	background-color:#a9a9a9;
+}

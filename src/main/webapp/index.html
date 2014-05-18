@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<title>::: Vote no Livro :::</title>
+	<link rel="stylesheet" href="resources/css/bootstrap.css">
+	<link rel="stylesheet" href="resources/css/estilo.css">
+	<link rel="icon" href="favicon.ico" type="img/ico">
+</head>
+<body class="container">
+
+<span id="menu">
+<!-- MENU SERA INJETADO AQUI -->
+</span>
+<span id="conteudo">
+<!-- CONTEUDO DOS LINKS SERA INJETADO AQUI -->
+</span>
+
+<script src="resources/js/jquery-2.0.3.js"></script>
+<script src="resources/js/bootstrap.min.js"></script>
+<script>
+	/**
+	* Rafael Camargo
+	*
+	*/	
+	var injetarArquivoNoConteudo = function(arquivo){
+		$("#conteudo").load(arquivo);
+	};
+	
+	var onInicializarPagina = function(){
+		$("#menu").load("menu.html");
+		$("#conteudo").load("livro/carregar/naovotados");
+	};
+
+	$(onInicializarPagina);
+</script>
+
+</body>
+</html>
