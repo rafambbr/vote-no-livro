@@ -1,13 +1,17 @@
 package br.com.aust.votenolivro.domain;
 
+import java.io.Serializable;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @ToString(of={"livro", "totalVotos"})
 @EqualsAndHashCode(of = "livro", callSuper = false)
-public @Data class Ranking implements Comparable<Ranking>{
+public @Data class Ranking implements Comparable<Ranking>, Serializable{
 
+	private static final long serialVersionUID = 5185650213183095699L;
+	
 	private Livro livro;
 	private long totalVotos;
 	

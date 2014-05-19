@@ -30,36 +30,50 @@ public class LivroController {
 	@Transactional
 	@RequestMapping("/livro/salvar")
 	public void salvar(Livro livro) {
-		livro = this.livroService.salvar(livro);
+		try{
+			livro = this.livroService.salvar(livro);
+		}catch(Exception e){
+			log.warn("Erro ao salvar o livro", e);
+		}
 	}
 	
 	@Transactional
 	@RequestMapping("/livro/votar")
 	public void votar(Livro livro, HttpServletResponse response){
-		this.livroService.votar(livro);
-		response.setStatus(200);
+		try{
+			this.livroService.votar(livro);
+			response.setStatus(200);
+		}catch(Exception e){
+			log.warn("Erro ao votar no livro", e);
+		}
 	}
 	
 	@RequestMapping("/livro/descartar")
 	public void descartar(Livro livro, HttpServletResponse response){
-		this.livroService.descartar(livro);
-		response.setStatus(200);
+		try{
+			this.livroService.descartar(livro);
+			response.setStatus(200);
+		}catch(Exception e){
+			log.warn("Erro ao descartar livro", e);
+		}
 	}
 	
 	@Transactional
 	@RequestMapping("/livro/carregar/naovotados")
 	public ModelAndView carregarLivrosNaoVotados(){
-		Collection<Livro> livros = this.livroService.carregarLivrosNaoVotados();
-		
 		ModelAndView mv = new ModelAndView("votar_no_livro");
-		mv.addObject("livros", livros);
-		
+
+		try{
+			Collection<Livro> livros = this.livroService.carregarLivrosNaoVotados();
+			mv.addObject("livros", livros);
+		}catch(Exception e){
+			log.warn("Erro ao carregar livros não votados");
+		}
 		return mv;
 	}
 	
 	@RequestMapping("/livro/carregar/ranking")
 	public ModelAndView carregarRanking(){
-
 		ModelAndView mv = new ModelAndView("ranking");
 		try{
 			Collection<Ranking> rankingLivros = this.rankingService.carregarRanking();
@@ -71,7 +85,6 @@ public class LivroController {
 		}catch(BusinessException e){
 			log.warn("Erro ao carregar o ranking", e);
 		}
-		
 		return mv;
 	}
 }

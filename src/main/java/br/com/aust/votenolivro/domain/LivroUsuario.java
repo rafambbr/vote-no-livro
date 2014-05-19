@@ -13,12 +13,11 @@ import br.com.aust.votenolivro.domain.common.CommonEntity;
 import br.com.aust.votenolivro.domain.id.LivroUsuarioPK;
 
 @Entity
+@CommonEntity
 @Table(name = "t_livro_usuario")
 @EqualsAndHashCode(of = "id", callSuper = false)
-public @Data class LivroUsuario implements CommonEntity{
+public @Data class LivroUsuario{
 
-	private static final long serialVersionUID = 5500629304462740954L;
-	
 	@EmbeddedId
 	private LivroUsuarioPK id;
 	

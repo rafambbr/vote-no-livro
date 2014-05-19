@@ -20,12 +20,11 @@ import lombok.ToString;
 import br.com.aust.votenolivro.domain.common.CommonEntity;
 
 @Entity
+@CommonEntity
 @Table(name = "t_usuario")
 @ToString(of={"idUsuario", "nome","email"})
 @EqualsAndHashCode(of="idUsuario", callSuper=false)
-public @Data class Usuario implements CommonEntity{
-
-	private static final long serialVersionUID = -1018207626107226024L;
+public @Data class Usuario{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

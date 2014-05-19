@@ -17,13 +17,12 @@ import lombok.ToString;
 import br.com.aust.votenolivro.domain.common.CommonEntity;
 
 @Entity
+@CommonEntity
 @Table(name = "t_livro")
 @ToString(of={"idLivro", "titulo","editora"})
 @EqualsAndHashCode(of = "idLivro", callSuper = false)
-public @Data class Livro implements CommonEntity{
+public @Data class Livro{
 
-	private static final long serialVersionUID = -834796842304631600L;
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_livro")
