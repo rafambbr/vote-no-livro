@@ -29,6 +29,16 @@ public class RankingServiceImpl implements RankingService{
 	@Autowired private UsuarioRepository usuarioRepository;
 	@Autowired private LivroService livroService;
 	
+	public RankingServiceImpl(){
+		//No-op
+	}
+	
+	public RankingServiceImpl(LivroUsuarioRepository livroUsuarioRepository, UsuarioRepository usuarioRepository, LivroService livroService){
+		this.livroUsuarioRepository = livroUsuarioRepository;
+		this.usuarioRepository = usuarioRepository;
+		this.livroService = livroService;
+	}
+	
 	@Override
 	@Transactional
 	public Collection<Ranking> carregarRanking() {

@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.hasItems;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import static org.mockito.Mockito.mock;
 
 import java.util.Collection;
 
@@ -13,12 +14,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.aust.votenolivro.AppConfig;
 import br.com.aust.votenolivro.business.repository.LivroRepository;
 import br.com.aust.votenolivro.business.repository.LivroUsuarioRepository;
 import br.com.aust.votenolivro.business.repository.UsuarioRepository;
+import br.com.aust.votenolivro.business.service.impl.LivroServiceImpl;
+import br.com.aust.votenolivro.business.service.impl.RankingServiceImpl;
 import br.com.aust.votenolivro.domain.Livro;
 import br.com.aust.votenolivro.domain.LivroUsuario;
 import br.com.aust.votenolivro.domain.Ranking;
@@ -41,7 +45,10 @@ public class RankingServiceTest {
 	@Autowired private LivroRepository livroRepository;
 	@Autowired private UsuarioRepository usuarioRepository;
 	@Autowired private LivroUsuarioRepository livroUsuarioRepository;
-	@Autowired private RankingService rankingService;
+	
+	private LivrosVotadosService livrosVotadosServiceMock;
+	private LivroService livroService;
+	private RankingService rankingService;
 	
 	@Before
 	public void setup(){
@@ -54,10 +61,14 @@ public class RankingServiceTest {
 		this.rafael = new Usuario("Rafael Camargo", "rafael.camargo.sp@gmail.com");
 		this.pedro = new Usuario("Pedro", "pedro@mail.com");
 		this.maria = new Usuario("Maria", "maria@terra.com.br");
-		
 		this.rafael = this.usuarioRepository.save(this.rafael);
 		this.pedro = this.usuarioRepository.save(this.pedro);
 		this.maria = this.usuarioRepository.save(this.maria);
+		
+		PageRequest pageRequest = new PageRequest(0, LivroServiceImpl.TOTAL_DE_LIVROS_VISUALIZADOS_POR_PAGINA);
+		this.livrosVotadosServiceMock = mock(LivrosVotadosService.class);
+		this.livroService = new LivroServiceImpl(this.livroRepository, this.livroUsuarioRepository, pageRequest, this.livrosVotadosServiceMock);
+		this.rankingService = new RankingServiceImpl(this.livroUsuarioRepository, this.usuarioRepository, this.livroService);
 	}
 	
 	@Test

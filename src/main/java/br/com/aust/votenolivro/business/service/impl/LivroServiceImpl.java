@@ -24,17 +24,18 @@ public class LivroServiceImpl implements LivroService{
 	@Autowired private LivroUsuarioRepository livroUsuarioRepository;
 	@Autowired private LivrosVotadosService livrosVotadosService;
 	
-	private static final int TOTAL_DE_LIVROS_VISUALIZADOS_POR_PAGINA = 2;
+	public static final int TOTAL_DE_LIVROS_VISUALIZADOS_POR_PAGINA = 2;
 	private PageRequest quantidadeRegistroRetornados;
 	
 	public LivroServiceImpl(){
 		this.quantidadeRegistroRetornados = new PageRequest(0, TOTAL_DE_LIVROS_VISUALIZADOS_POR_PAGINA);
 	}
 	
-	public LivroServiceImpl(LivroRepository livroRepository, LivroUsuarioRepository livroUsuarioRepository, PageRequest quantidadeRegistroRetornados){
+	public LivroServiceImpl(LivroRepository livroRepository, LivroUsuarioRepository livroUsuarioRepository, PageRequest quantidadeRegistroRetornados, LivrosVotadosService livrosVotadosService){
 		this.livroRepository = livroRepository;
 		this.livroUsuarioRepository = livroUsuarioRepository;
 		this.quantidadeRegistroRetornados = quantidadeRegistroRetornados;
+		this.livrosVotadosService = livrosVotadosService;
 	}
 	
 	@Override

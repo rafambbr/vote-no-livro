@@ -3,8 +3,11 @@ package br.com.aust.votenolivro.business.service;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItems;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -31,6 +34,7 @@ public class LivroServiceTest {
 	private Livro senhorDosAneis;
 
 	private LivroService livroService;
+	private LivrosVotadosService livrosVotadosServiceMock;
 	
 	@Autowired private LivroRepository livroRepository;
 	@Autowired private LivroUsuarioRepository livroUsuarioRepository;
@@ -43,16 +47,22 @@ public class LivroServiceTest {
 		this.oCodigoDaVinci = this.livroRepository.findOne(4L);
 		this.senhorDosAneis = this.livroRepository.findOne(5L);
 		
+		this.livrosVotadosServiceMock = mock(LivrosVotadosService.class);
+		
 		int totalDeRegistros = 1000;
 		PageRequest quantidadeRegistroRetornados = new PageRequest(0, totalDeRegistros);
-		this.livroService = new LivroServiceImpl(this.livroRepository, this.livroUsuarioRepository, quantidadeRegistroRetornados);
+		this.livroService = new LivroServiceImpl(this.livroRepository, this.livroUsuarioRepository, quantidadeRegistroRetornados, this.livrosVotadosServiceMock);
 	}
 	
 	@Test
 	public void deveRetornarOsLivrosAindaNaoVotados(){
 		
-		this.livroService.votar(this.senhorDosAneis);
-		this.livroService.votar(this.anjosEDemonios);
+		Collection<Long> idsLivrosVisualizados = new HashSet<Long>();
+		idsLivrosVisualizados.add( this.senhorDosAneis.getIdLivro() );
+		idsLivrosVisualizados.add( this.anjosEDemonios.getIdLivro() );
+		
+		when(this.livrosVotadosServiceMock.existeLivrosVotados()).thenReturn(true);
+		when(this.livrosVotadosServiceMock.getIdsLivrosVisualizados()).thenReturn(idsLivrosVisualizados);
 		
 		Collection<Livro> livrosNaoVotados = this.livroService.carregarLivrosNaoVotados();
 		assertEquals(livrosNaoVotados.size(), 3);
@@ -66,8 +76,14 @@ public class LivroServiceTest {
 	@Test
 	public void deveRetornarLivrosVotados(){
 		
-		this.livroService.votar(this.anjosEDemonios);
-		this.livroService.votar(this.harryPotter);
+		
+		Collection<Long> idsLivrosVotados = new HashSet<Long>();
+		idsLivrosVotados.add( this.anjosEDemonios.getIdLivro() );
+		idsLivrosVotados.add( this.harryPotter.getIdLivro() );
+		
+		when(this.livrosVotadosServiceMock.existeLivrosVotados()).thenReturn(true);
+		when(this.livrosVotadosServiceMock.getIdsLivrosVotados()).thenReturn(idsLivrosVotados);
+		
 		Collection<Livro> livrosVotados = this.livroService.getLivrosVotados();
 		
 		assertEquals(livrosVotados.size(), 2);
@@ -75,7 +91,7 @@ public class LivroServiceTest {
 				this.anjosEDemonios,
 				this.harryPotter));
 		
-		this.livroService.votar(this.hobbit);
+		idsLivrosVotados.add( this.hobbit.getIdLivro() );
 		livrosVotados = this.livroService.getLivrosVotados();
 		
 		assertEquals(livrosVotados.size(), 3);
