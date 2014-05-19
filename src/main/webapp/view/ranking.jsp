@@ -31,6 +31,12 @@
 <br/>
 </c:if>
 
+<c:if test="${fn:length(rankingLivrosUsuario) <= 0}">
+	<span style="center">
+		<p><b>Você não voutou ainda, clique <a href="livro/carregar/naovotados" class="linkConteudo">aqui</a> para votar!</b></p>
+	</span>
+</c:if>
+
 <c:if test="${fn:length(rankingLivros) >= 1}">
 <p>Livros votados por todas as pessoas que utilizaram o sistema:</p>
 <table class="tb-ranking-livro">
@@ -53,11 +59,5 @@
 </table>
 </c:if>
 </span>
-
-<c:if test="${fn:length(rankingLivros) <= 0}">
-	<span style="center">
-		<p><b>Nenhum livro foi votado ainda, clique <a href="livro/carregar/naovotados" class="linkConteudo">aqui</a> para votar!</b></p>
-	</span>
-</c:if>
 
 <script src="resources/js/conteudo.js"></script>

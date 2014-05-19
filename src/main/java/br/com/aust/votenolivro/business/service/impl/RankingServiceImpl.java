@@ -1,15 +1,17 @@
 package br.com.aust.votenolivro.business.service.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import br.com.aust.votenolivro.business.exception.ServiceException;
 import br.com.aust.votenolivro.business.repository.LivroUsuarioRepository;
 import br.com.aust.votenolivro.business.repository.UsuarioRepository;
 import br.com.aust.votenolivro.business.service.LivroService;
@@ -40,26 +42,26 @@ public class RankingServiceImpl implements RankingService{
 	@Override
 	public Collection<Ranking> carregarRanking() {
 		
-		Map<Livro, Ranking> votosLivro = new HashMap<Livro, Ranking>();
+		List<Ranking> rankingOrdenado = null;
 		
-		try{
-			Collection<LivroUsuario> livrosUsuarios = this.livroUsuarioRepository.findAll();
-			for (LivroUsuario livroUsuario : livrosUsuarios) {
-				Livro livro = livroUsuario.getLivro();
-				if( votosLivro.containsKey(livro) ){
-					votosLivro.get(livro).adicionarVoto();
-				}else{
-					Ranking ranking = new Ranking(livro);
-					ranking.adicionarVoto();
-					
-					votosLivro.put(livro, ranking );
-				}
+		Map<Livro, Ranking> votosLivro = new HashMap<Livro, Ranking>();
+		Collection<LivroUsuario> livrosUsuarios = this.livroUsuarioRepository.findAll();
+		for (LivroUsuario livroUsuario : livrosUsuarios) {
+			Livro livro = livroUsuario.getLivro();
+			if( votosLivro.containsKey(livro) ){
+				votosLivro.get(livro).adicionarVoto();
+			}else{
+				Ranking ranking = new Ranking(livro);
+				ranking.adicionarVoto();
+				
+				votosLivro.put(livro, ranking );
 			}
-		}catch(Exception e){
-			throw new ServiceException("Erro ao carregar o ranking", e);
 		}
 		
-		return votosLivro.values();
+		rankingOrdenado = new ArrayList<Ranking>(votosLivro.values());
+		Collections.sort(rankingOrdenado);
+		
+		return rankingOrdenado;
 	}
 	
 	@Override
