@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -40,7 +38,6 @@ public class RankingServiceImpl implements RankingService{
 	}
 	
 	@Override
-	@Transactional
 	public Collection<Ranking> carregarRanking() {
 		
 		Map<Livro, Ranking> votosLivro = new HashMap<Livro, Ranking>();
@@ -77,7 +74,6 @@ public class RankingServiceImpl implements RankingService{
 	}
 
 	@Override
-	@Transactional
 	public void salvar(Collection<Livro> livros, Usuario usuario){
 		if(livros != null && usuario != null){
 			usuario = this.usuarioRepository.save(usuario);

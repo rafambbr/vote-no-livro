@@ -3,8 +3,6 @@ package br.com.aust.votenolivro.business.service.impl;
 import java.util.Collection;
 import java.util.HashSet;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.PageRequest;
@@ -39,26 +37,22 @@ public class LivroServiceImpl implements LivroService{
 	}
 	
 	@Override
-	@Transactional
 	public Livro salvar(Livro livro){
 		livro = this.livroRepository.save(livro);
 		return livro;
 	}
 	
 	@Override
-	@Transactional
 	public void votar(Livro livro){
 		this.livrosVotadosService.votar(livro);
 	}
 	
 	@Override
-	@Transactional
 	public void descartar(Livro livro) {
 		this.livrosVotadosService.descartar(livro);
 	}
 	
 	@Override
-	@Transactional
 	public Collection<Livro> carregarLivrosNaoVotados(){
 		Collection<Livro> livrosNaoVotados = null;
 		if( this.livrosVotadosService.existeLivrosVotados() ){
@@ -99,12 +93,6 @@ public class LivroServiceImpl implements LivroService{
 				break;
 			}
 		}
-	}
-
-	@Override
-	@Transactional
-	public Collection<Livro> carregarTodos(){
-		return this.livroRepository.findAll();
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package br.com.aust.votenolivro.web;
 import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -21,6 +22,7 @@ public class UsuarioController {
 	@Autowired private LivroService livroService;
 	@Autowired private RankingService rankingService;
 	
+	@Transactional
 	@RequestMapping("/usuario/salvar/livrosvotados")
 	public String salvarLivrosFavoritosUsuario(Usuario usuario, HttpServletRequest request){
 		

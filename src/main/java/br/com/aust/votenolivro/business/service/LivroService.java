@@ -9,7 +9,6 @@ public interface LivroService {
 	public Livro salvar(Livro livro);
 	public void votar(Livro livro);
 	public Collection<Livro> carregarLivrosNaoVotados();
-	public Collection<Livro> carregarTodos();
 	public Collection<Livro> getLivrosVotados();
 	public void descartar(Livro livro);
 }

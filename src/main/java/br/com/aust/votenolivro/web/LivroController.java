@@ -3,6 +3,7 @@ package br.com.aust.votenolivro.web;
 import java.util.Collection;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -10,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.aust.votenolivro.business.exception.BusinessException;
@@ -27,12 +27,13 @@ public class LivroController {
 	@Autowired private LivroService livroService;
 	@Autowired private RankingService rankingService;
 
-	@ResponseBody
+	@Transactional
 	@RequestMapping("/livro/salvar")
 	public void salvar(Livro livro) {
 		livro = this.livroService.salvar(livro);
 	}
 	
+	@Transactional
 	@RequestMapping("/livro/votar")
 	public void votar(Livro livro, HttpServletResponse response){
 		this.livroService.votar(livro);
@@ -45,6 +46,7 @@ public class LivroController {
 		response.setStatus(200);
 	}
 	
+	@Transactional
 	@RequestMapping("/livro/carregar/naovotados")
 	public ModelAndView carregarLivrosNaoVotados(){
 		Collection<Livro> livros = this.livroService.carregarLivrosNaoVotados();

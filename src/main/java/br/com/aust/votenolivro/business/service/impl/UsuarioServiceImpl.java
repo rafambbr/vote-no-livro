@@ -1,7 +1,5 @@
 package br.com.aust.votenolivro.business.service.impl;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +14,6 @@ public class UsuarioServiceImpl implements UsuarioService{
 	@Autowired private UsuarioRepository usuarioRepository;
 	
 	@Override
-	@Transactional
 	public void salvarLivrosFavoritosUsuario(Usuario usuario) {
 		
 		if(usuario == null || usuario.getLivrosFavoritos() == null || usuario.getLivrosFavoritos().isEmpty() ){
