@@ -17,5 +17,11 @@ Na pasta raiz do projeto execute:
 mvn clean install
 mvn spring-boot:run
 
-# Acesse a plicação rodando
-http://tinyurl.com/vote-no-livro
+# Acesse a plicação rodando:
+Amazon
+======
+http://tinyurl.com/vote-no-livro 
+
+Heroku
+======
+http://vote-no-livro.herokuapp.com/
