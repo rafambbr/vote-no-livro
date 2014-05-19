@@ -2,6 +2,7 @@ package br.com.aust.votenolivro.web;
 
 import java.util.Collection;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
 import lombok.extern.slf4j.Slf4j;
@@ -26,10 +27,11 @@ public class UsuarioController {
 	
 	@Transactional
 	@RequestMapping("/usuario/salvar/livrosvotados")
-	public String salvarLivrosFavoritosUsuario(Usuario usuario){
+	public String salvarLivrosFavoritosUsuario(Usuario usuario, HttpServletRequest request){
 		try{
 			Collection<Livro> livrosVotados = this.livroService.getLivrosVotados();
 			this.rankingService.salvar(livrosVotados, usuario);
+			request.getSession().setAttribute("usuarioJaVotou", true);
 		}catch(Exception e){
 			log.warn("Erro ao salvar votos do usuario", e);
 		}

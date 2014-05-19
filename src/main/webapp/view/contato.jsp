@@ -7,6 +7,7 @@
 	<li>Spring Boot</li>
 	<li>JPA</li>
 	<li>HSQLDB</li>
+	<li>Groovy</li>
 	<li>Loombok</li>
 	<li>JUnit</li>
 	<li>Bootstrap</li>
