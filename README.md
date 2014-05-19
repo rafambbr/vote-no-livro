@@ -17,7 +17,7 @@ Na pasta raiz do projeto execute:
 mvn clean install
 mvn spring-boot:run
 
-## Acesse a plicação rodando:
+## Acesse a aplicação rodando:
 #### Amazon
 http://tinyurl.com/vote-no-livro 
 
