@@ -7,22 +7,22 @@ Deverá exibir dois livros para o usuário e perguntar qual deles ele gosta mais
 
 
 ## Essa aplicação foi desenvolvida utilizando:
-##### Spring MVC
-##### Spring Data
-##### Spring Boot
-##### JPA
-##### Hibernate
-##### HSQLDB
-##### Groovy
-##### Loombok
-##### JUnit
-##### Hamcrest
-##### Mockito
-##### Bootstrap
-##### JQuery
-##### AJAX
-##### CSS3
-##### HTML5
+* Spring MVC
+* Spring Data
+* Spring Boot
+* JPA
+* Hibernate
+* HSQLDB
+* Groovy
+* Loombok
+* JUnit
+* Hamcrest
+* Mockito
+* Bootstrap
+* JQuery
+* AJAX
+* CSS3
+* HTML5
 
 ## Baixando o projeto
 git clone git@github.com:rafambbr/vote-no-livro.git
