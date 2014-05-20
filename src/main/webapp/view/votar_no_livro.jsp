@@ -56,11 +56,11 @@
 		<table>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" name="nome"></td>
+				<td><input type="text" name="nome" maxlength="30"></td>
 			</tr>
 			<tr>
 				<td>Email:</td>
-				<td><input type="text" name="email"></td>
+				<td><input type="text" name="email" maxlength="30"></td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>

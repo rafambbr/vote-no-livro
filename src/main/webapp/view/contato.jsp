@@ -5,11 +5,14 @@
 	<li>Spring MVC</li>
 	<li>Spring Data</li>
 	<li>Spring Boot</li>
-	<li>JPA</li>
 	<li>HSQLDB</li>
+	<li>JPA</li>
+	<li>Hibernate</li>
 	<li>Groovy</li>
 	<li>Loombok</li>
 	<li>JUnit</li>
+	<li>Hamcrest</li>
+	<li>Mockito</li>
 	<li>Bootstrap</li>
 	<li>JQuery</li>
 	<li>AJAX</li>

@@ -31,10 +31,10 @@ public @Data class Usuario{
 	@Column(name="id_usuario")
 	private Long idUsuario;
 	
-	@Column(name="nome")
+	@Column(name="nome", length=30)
 	private String nome;
 	
-	@Column(name="email")
+	@Column(name="email", length=30)
 	private String email;
 
 	@ManyToMany( fetch = FetchType.EAGER, cascade={CascadeType.ALL} )
