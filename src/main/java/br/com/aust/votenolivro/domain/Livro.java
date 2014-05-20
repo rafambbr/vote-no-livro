@@ -28,16 +28,16 @@ public @Data class Livro{
 	@Column(name="idlivro")
 	private Long idLivro;
 	
-	@Column(name="titulo", length=30)
+	@Column(name="titulo")
 	private String titulo;
 	
-	@Column(name="editora", length=30)
+	@Column(name="editora")
 	private String editora;
 	
-	@Column(name="urifotocapa", length=100)
+	@Column(name="urifotocapa")
 	private String fotoCapa;
 	
-	@Column(name="isbn", length=50)
+	@Column(name="isbn")
 	private String isbn;
 	
 	@Column(name="paginas")
