@@ -14,7 +14,7 @@ import br.com.aust.votenolivro.domain.id.LivroUsuarioPK;
 
 @Entity
 @CommonEntity
-@Table(name = "t_livro_usuario")
+@Table(name = "tlivrousuario")
 @EqualsAndHashCode(of = "id", callSuper = false)
 public @Data class LivroUsuario{
 
@@ -22,11 +22,11 @@ public @Data class LivroUsuario{
 	private LivroUsuarioPK id;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="id_usuario", referencedColumnName="id_usuario", nullable = false, insertable=false, updatable=false)
+	@JoinColumn(name="idusuario", referencedColumnName="idusuario", nullable = false, insertable=false, updatable=false)
 	private Usuario usuario;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="id_livro", referencedColumnName="id_livro", nullable = false, insertable=false, updatable=false)
+	@JoinColumn(name="idlivro", referencedColumnName="idlivro", nullable = false, insertable=false, updatable=false)
 	private Livro livro;
 	
 	public LivroUsuario(){

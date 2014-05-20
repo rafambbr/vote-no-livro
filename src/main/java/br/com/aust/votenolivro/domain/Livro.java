@@ -18,14 +18,14 @@ import br.com.aust.votenolivro.domain.common.CommonEntity;
 
 @Entity
 @CommonEntity
-@Table(name = "t_livro")
+@Table(name = "tlivro")
 @ToString(of={"idLivro", "titulo","editora"})
 @EqualsAndHashCode(of = "idLivro", callSuper = false)
 public @Data class Livro{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id_livro")
+	@Column(name="idlivro")
 	private Long idLivro;
 	
 	@Column(name="titulo", length=30)
@@ -34,7 +34,7 @@ public @Data class Livro{
 	@Column(name="editora", length=30)
 	private String editora;
 	
-	@Column(name="uri_foto_capa", length=100)
+	@Column(name="urifotocapa", length=100)
 	private String fotoCapa;
 	
 	@Column(name="isbn", length=50)

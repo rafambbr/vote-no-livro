@@ -14,10 +14,10 @@ public @Data class LivroUsuarioPK implements Serializable{
 
 	private static final long serialVersionUID = 4258019472590035679L;
 
-	@Column( name="id_livro", nullable=false, insertable=false, updatable=false )
+	@Column( name="idlivro", nullable=false, insertable=false, updatable=false )
 	private Long idLivro;
 
-	@Column( name="id_usuario", nullable=false, insertable=false, updatable=false )
+	@Column( name="idusuario", nullable=false, insertable=false, updatable=false )
 	private Long idUsuario;
 
 	public LivroUsuarioPK(){
