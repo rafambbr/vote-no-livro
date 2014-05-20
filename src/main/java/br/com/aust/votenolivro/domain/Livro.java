@@ -25,19 +25,19 @@ public @Data class Livro{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id_livro")
+	@Column(name="id_livro", length=30)
 	private Long idLivro;
 	
-	@Column(name="titulo")
+	@Column(name="titulo", length=30)
 	private String titulo;
 	
-	@Column(name="editora")
+	@Column(name="editora", length=30)
 	private String editora;
 	
-	@Column(name="uri_foto_capa")
+	@Column(name="uri_foto_capa", length=100)
 	private String fotoCapa;
 	
-	@Column(name="isbn")
+	@Column(name="isbn", length=30)
 	private String isbn;
 	
 	@Column(name="paginas")

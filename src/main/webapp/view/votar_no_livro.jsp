@@ -46,7 +46,7 @@
 	</table>
 </c:if>
 
-<c:if test="${fn:length(livros) < 2}">
+<c:if test="${fn:length(livros) <= 0}">
 
 	<c:if test="${!usuarioJaVotou}">
 	<h3>Obrigado pelos votos!</h3>
@@ -56,11 +56,11 @@
 		<table>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" name="nome" maxlength="30"></td>
+				<td><input type="text" name="nome" maxlength="50"></td>
 			</tr>
 			<tr>
 				<td>Email:</td>
-				<td><input type="text" name="email" maxlength="30"></td>
+				<td><input type="text" name="email" maxlength="50"></td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
