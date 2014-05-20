@@ -100,4 +100,28 @@ public class LivroServiceTest {
 				this.harryPotter,
 				this.hobbit));
 	}
+	
+	@Test
+	public void deveCarregarLivrosNaoVotados(){
+
+		Collection<Livro> livrosNaoVotados = this.livroService.carregarLivrosNaoVotados();
+		assertThat(livrosNaoVotados, hasItems(
+				this.harryPotter,
+				this.hobbit,
+				this.anjosEDemonios,
+				this.oCodigoDaVinci,
+				this.senhorDosAneis));
+		
+		this.livroService.votar(harryPotter);
+		this.livroService.votar(hobbit);
+		this.livroService.descartar(anjosEDemonios);
+		this.livroService.descartar(oCodigoDaVinci);
+		livrosNaoVotados = this.livroService.carregarLivrosNaoVotados();
+
+		assertThat(livrosNaoVotados, hasItems(
+				this.senhorDosAneis,
+				this.anjosEDemonios,
+				this.oCodigoDaVinci));
+		
+	}
 }

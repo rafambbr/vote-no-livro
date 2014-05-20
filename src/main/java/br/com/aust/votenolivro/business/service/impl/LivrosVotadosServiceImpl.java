@@ -6,6 +6,7 @@ import java.util.HashSet;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import br.com.aust.votenolivro.business.exception.ServiceException;
 import br.com.aust.votenolivro.business.service.LivrosVotadosService;
 import br.com.aust.votenolivro.domain.Livro;
 
@@ -20,6 +21,8 @@ public class LivrosVotadosServiceImpl implements LivrosVotadosService {
 	public void votar(Livro livroVotado){
 		if(livroVotado != null && livroVotado.getIdLivro() != null){
 			this.livrosVotados.add(livroVotado);
+		}else{
+			throw new ServiceException("O livro votado precisa ter um id.");
 		}
 	}
 	
@@ -27,6 +30,8 @@ public class LivrosVotadosServiceImpl implements LivrosVotadosService {
 	public void descartar(Livro livroDescartado){
 		if(livroDescartado != null && livroDescartado.getIdLivro() != null){
 			this.livrosDescartados.add(livroDescartado);
+		}else{
+			throw new ServiceException("O livro descartado precisa ter um id.");
 		}
 	}
 	
