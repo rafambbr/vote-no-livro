@@ -14,7 +14,7 @@ import br.com.aust.votenolivro.domain.id.LivroUsuarioPK;
 
 @Entity
 @CommonEntity
-@Table(name = "t_livrousuario")
+@Table(name = "t_livro_usuario")
 @EqualsAndHashCode(of = "id", callSuper = false)
 public @Data class LivroUsuario{
 
