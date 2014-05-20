@@ -1,10 +1,5 @@
 package br.com.aust.votenolivro.business.service;
 
-public class LivrosVotadosServiceTest {
-	
-}
-
-/*
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItems;
 import static org.junit.Assert.assertEquals;
@@ -105,4 +100,3 @@ public class LivrosVotadosServiceTest {
 		livrosVotadosService.descartar(livroSemId);
 	}
 }
-*/

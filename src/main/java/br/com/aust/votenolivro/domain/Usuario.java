@@ -21,14 +21,14 @@ import br.com.aust.votenolivro.domain.common.CommonEntity;
 
 @Entity
 @CommonEntity
-@Table(name = "tusuario")
+@Table(name = "t_usuario")
 @ToString(of={"idUsuario", "nome","email"})
 @EqualsAndHashCode(of="idUsuario", callSuper=false)
 public @Data class Usuario{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="idusuario")
+	@Column(name="id_usuario")
 	private Long idUsuario;
 	
 	@Column(name="nome")
@@ -38,9 +38,9 @@ public @Data class Usuario{
 	private String email;
 
 	@ManyToMany( fetch = FetchType.EAGER, cascade={CascadeType.ALL} )
-	@JoinTable(name = "tlivrousuario",
-		joinColumns = 		 { @JoinColumn(name = "idusuario", 	nullable = false) },
-		inverseJoinColumns = { @JoinColumn(name = "idlivro", 		nullable = false) } )
+	@JoinTable(name = "t_livro_usuario",
+		joinColumns = 		 { @JoinColumn(name = "id_usuario", 	nullable = false) },
+		inverseJoinColumns = { @JoinColumn(name = "id_livro", 		nullable = false) } )
 	private Set<Livro> livrosFavoritos;
 	
 	public Usuario(){

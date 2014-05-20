@@ -100,7 +100,7 @@ public class LivroServiceTest {
 				this.harryPotter,
 				this.hobbit));
 	}
-	/*
+
 	@Test
 	public void deveCarregarLivrosNaoVotados(){
 
@@ -124,5 +124,5 @@ public class LivroServiceTest {
 				this.oCodigoDaVinci));
 		
 	}
-	*/
+
 }
