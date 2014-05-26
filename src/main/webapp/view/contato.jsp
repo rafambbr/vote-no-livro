@@ -5,6 +5,7 @@
 	<li>Spring MVC</li>
 	<li>Spring Data</li>
 	<li>Spring Boot</li>
+	<li>Maven</li>
 	<li>HSQLDB</li>
 	<li>JPA</li>
 	<li>Hibernate</li>

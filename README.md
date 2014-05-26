@@ -10,6 +10,7 @@ Deverá exibir dois livros para o usuário e perguntar qual deles ele gosta mais
 * Spring MVC
 * Spring Data
 * Spring Boot
+* Maven
 * JPA
 * Hibernate
 * HSQLDB
