@@ -19,6 +19,8 @@
 	<li>AJAX</li>
 	<li>CSS3</li>
 	<li>HTML5</li>
+	<li>JSP</li>
+	<li>JSTL</li>
 </ul>
 
 <h3>Desenvolvedor:</h3>
