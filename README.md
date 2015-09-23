@@ -28,6 +28,7 @@ Deverá exibir dois livros para o usuário e perguntar qual deles ele gosta mais
 * HTML5
 * JSP
 * JSTL
+* Travis CI
 
 ## Baixando o projeto
 git clone git@github.com:rafambbr/vote-no-livro.git
