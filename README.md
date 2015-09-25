@@ -1,5 +1,5 @@
 # Vote no Livro
-===================
+===============
 
 ![alt STATUS DO PROJETO](https://travis-ci.org/rafambbr/vote-no-livro.svg?branch=master)
 
