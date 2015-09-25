@@ -31,6 +31,7 @@ Deverá exibir dois livros para o usuário e perguntar qual deles ele gosta mais
 * JSP
 * JSTL
 * Travis CI
+* Gitter
 
 ## Baixando o projeto
 git clone git@github.com:rafambbr/vote-no-livro.git
