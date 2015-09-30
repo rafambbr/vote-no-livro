@@ -5,6 +5,8 @@
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/rafambbr/vote-no-livro)
 
+[![Coverage Status](https://coveralls.io/repos/rafambbr/vote-no-livro/badge.svg?branch=master&service=github)](https://coveralls.io/github/rafambbr/vote-no-livro?branch=master)
+
 ## Desafio
 
 Deverá exibir dois livros para o usuário e perguntar qual deles ele gosta mais. Digamos que o usuário clique no livro “Harry Potter”. Você então deverá computar o voto dele e perguntar sobre outros livros.  Você deverá ter apenas 5 livros diferentes em seu banco de dados. Depois de computar todos os votos necessários, você deverá exibir dois campos para que o usuário preencha: um para o e-mail e outro para o nome dele. Ao confirmar, você deverá exibir o ranking geral dos livros considerando todos os votos inclusive dos outros usuário, e o ranking dele.
