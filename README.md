@@ -1,6 +1,8 @@
 # Vote no Livro
 ===============
 
+[![Join the chat at https://gitter.im/rafambbr/vote-no-livro](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/rafambbr/vote-no-livro?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ![alt STATUS DO PROJETO](https://travis-ci.org/rafambbr/vote-no-livro.svg?branch=master)
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/rafambbr/vote-no-livro)
